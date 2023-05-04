@@ -1,34 +1,35 @@
 import { Table } from 'sst/constructs';
 import { Construct } from 'constructs';
 
-export interface IBoatsTable {
+export interface IServiceOneTable {
   table: Table;
 }
 
-export interface IBoatsResourcesDynamoDB {
-  BoatsTable: IBoatsTable;
+export interface IServiceOneResourcesDynamoDB {
+  ServiceOneTable: IServiceOneTable;
 }
 
-const BoatsTable = (stack: Construct): IBoatsTable => {
-  const table = new Table(stack, `boats-table`, {
+const ServiceOneTable = (stack: Construct): IServiceOneTable => {
+  const table = new Table(stack, `serviceOne-table`, {
     fields: {
-      boat_id: 'string',
-      boat_name: 'string',
-      boat_type: 'string',
+      pk: 'string',
+      sk: 'string',
     },
-    primaryIndex: { partitionKey: 'boat_id' },
+    primaryIndex: { partitionKey: 'pk' },
     globalIndexes: {
-      gsi_one: { partitionKey: 'boat_type' },
+      gsi_One: { partitionKey: 'sk' },
     },
   });
 
   return { table };
 };
 
-const BoatsResoucesDynamoDB = (stack: Construct): IBoatsResourcesDynamoDB => {
+const ServiceOneResoucesDynamoDB = (
+  stack: Construct
+): IServiceOneResourcesDynamoDB => {
   return {
-    BoatsTable: BoatsTable(stack),
+    ServiceOneTable: ServiceOneTable(stack),
   };
 };
 
-export default BoatsResoucesDynamoDB;
+export default ServiceOneResoucesDynamoDB;

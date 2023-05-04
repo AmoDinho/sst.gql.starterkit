@@ -1,7 +1,7 @@
 import { StackContext } from 'sst/constructs';
 import BoatsResourcesAPI from './api';
 import BoatsResoucesDynamoDB from './database';
-import BoatsResourceS3 from './storage/';
+import BoatsResourceS3 from './storage';
 /*
 Each service needs a stack file where you combine 
 various peices of infrustruce.
@@ -15,7 +15,7 @@ Infra to add:
 
 
 */
-const BoatsStack = ({ stack }: StackContext) => {
+const ServiceOneStack = ({ stack }: StackContext) => {
   const boatsResourcesAPI = BoatsResourcesAPI(stack);
   const boatsResoucesDynamoDB = BoatsResoucesDynamoDB(stack);
   const boatsResourcesS3 = BoatsResourceS3(stack);
@@ -32,4 +32,4 @@ const BoatsStack = ({ stack }: StackContext) => {
     boatsResoucesDynamoDB,
   };
 };
-export default BoatsStack;
+export default ServiceOneStack;

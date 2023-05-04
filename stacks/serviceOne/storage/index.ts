@@ -1,25 +1,25 @@
 import { Bucket } from 'sst/constructs';
 import { Construct } from 'constructs';
 
-export interface IBoatsBucket {
-  boatsBucket: Bucket;
+export interface IServiceOneBucket {
+  serviceOneBucket: Bucket;
 }
 
-export interface IBoatsResourcesS3 {
-  BoatsBucket: IBoatsBucket;
+export interface IServiceOneResourcesS3 {
+  ServiceOneBucket: IServiceOneBucket;
 }
 
-const BoatsBucket = (stack: Construct): IBoatsBucket => {
-  const boatsBucket = new Bucket(stack, `boats-buckets`);
+const ServiceOneBucket = (stack: Construct): IServiceOneBucket => {
+  const serviceOneBucket = new Bucket(stack, `boats-buckets`);
   return {
-    boatsBucket,
+    serviceOneBucket,
   };
 };
 
-const BoatsResourceS3 = (stack: Construct) => {
+const ServiceOneResourceS3 = (stack: Construct) => {
   return {
-    BoatsBucket: BoatsBucket(stack),
+    ServiceOneBucket: ServiceOneBucket(stack),
   };
 };
 
-export default BoatsResourceS3;
+export default ServiceOneResourceS3;

@@ -1,0 +1,17 @@
+[
+  {
+    "boat_id": "00001",
+    "boat_name": "uMoya",
+    "boat_type": "Keel Boat"
+  },
+  {
+    "boat_id": "00002",
+    "boat_name": "Scatterling",
+    "boat_type": "Keel Boat"
+  },
+  {
+    "boat_id": "00004",
+    "boat_name": "BioTherm",
+    "boat_type": "Imoca"
+  }
+]

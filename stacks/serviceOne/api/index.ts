@@ -1,21 +1,21 @@
 import { Api } from 'sst/constructs';
 import { Construct } from 'constructs';
-export interface IBoatsAPIResource {
-  BoatsAPI: Api;
+export interface IServiceOneAPIResource {
+  ServiceOneAPI: Api;
 }
 
-const BoatsAPI = (Stack: Construct): Api => {
-  const boatsAPI = new Api(Stack, `boats-stack-api`, {
+const ServiceOneAPI = (Stack: Construct): Api => {
+  const ServiceOneAPI = new Api(Stack, `ServiceOne-stack-api`, {
     routes: {
-      'POST /boats-graphql': {
+      'POST /ServiceOne-graphql': {
         type: 'graphql',
-        function: 'packages/boats/__graphql/index.handler',
+        function: 'packages/ServiceOne/__graphql/index.handler',
       },
       // pothos: {
-      //   schema: 'packages/boats/__graphql/schema.ts',
-      //   output: 'packages/boats/__graphql/schema.graphql',
+      //   schema: 'packages/ServiceOne/__graphql/schema.ts',
+      //   output: 'packages/ServiceOne/__graphql/schema.graphql',
       //   commands: [
-      //     'cd packages/boats/__graphql && npx @genql/cli --output ./genql --schema ./schema.graphql --esm',
+      //     'cd packages/ServiceOne/__graphql && npx @genql/cli --output ./genql --schema ./schema.graphql --esm',
       //   ],
       // },
     },
@@ -26,13 +26,13 @@ const BoatsAPI = (Stack: Construct): Api => {
     },
   });
 
-  return boatsAPI;
+  return ServiceOneAPI;
 };
 
-const BoatsResourcesAPI = (stack: Construct): IBoatsAPIResource => {
+const ServiceOneResourcesAPI = (stack: Construct): IServiceOneAPIResource => {
   return {
-    BoatsAPI: BoatsAPI(stack),
+    ServiceOneAPI: ServiceOneAPI(stack),
   };
 };
 
-export default BoatsResourcesAPI;
+export default ServiceOneResourcesAPI;

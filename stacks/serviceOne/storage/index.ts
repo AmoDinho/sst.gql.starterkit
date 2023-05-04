@@ -10,7 +10,7 @@ export interface IServiceOneResourcesS3 {
 }
 
 const ServiceOneBucket = (stack: Construct): IServiceOneBucket => {
-  const serviceOneBucket = new Bucket(stack, `boats-buckets`);
+  const serviceOneBucket = new Bucket(stack, `serviceone-buckets`);
   return {
     serviceOneBucket,
   };

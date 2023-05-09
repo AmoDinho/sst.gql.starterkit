@@ -1,7 +1,7 @@
 import { StackContext } from 'sst/constructs';
-import BoatsResourcesAPI from './api';
-import BoatsResoucesDynamoDB from './database';
-import BoatsResourceS3 from './storage';
+import ServiceOneResourcesAPI from './api';
+import ServiceOneResoucesDynamoDB from './database';
+import ServiceOneResourceS3 from './storage';
 /*
 Each service needs a stack file where you combine 
 various peices of infrustruce.
@@ -16,20 +16,21 @@ Infra to add:
 
 */
 const ServiceOneStack = ({ stack }: StackContext) => {
-  const boatsResourcesAPI = BoatsResourcesAPI(stack);
-  const boatsResoucesDynamoDB = BoatsResoucesDynamoDB(stack);
-  const boatsResourcesS3 = BoatsResourceS3(stack);
+  const serviceOneResourcesAPI = ServiceOneResourcesAPI(stack);
+  const serviceOneResoucesDynamoDB = ServiceOneResoucesDynamoDB(stack);
+  const serviceOneResourcesS3 = ServiceOneResourceS3(stack);
 
   stack.addOutputs({
-    BoatsAPIEndpoint: boatsResourcesAPI.BoatsAPI.url,
+    BoatsAPIEndpoint: serviceOneResourcesAPI.ServiceOneAPI.url,
   });
   stack.addOutputs({
-    BoatsS3Bucket: boatsResourcesS3.BoatsBucket.boatsBucket.bucketName,
+    BoatsS3Bucket:
+      serviceOneResourcesS3.ServiceOneBucket.serviceOneBucket.bucketName,
   });
   return {
-    boatsResourcesAPI,
-    boatsResourcesS3,
-    boatsResoucesDynamoDB,
+    serviceOneResourcesAPI,
+    serviceOneResourcesS3,
+    serviceOneResoucesDynamoDB,
   };
 };
 export default ServiceOneStack;

@@ -82,3 +82,7 @@ Now you are all setup to run SST locally.
 $ yarn dev
 
 ```
+
+# Deployment 🍬
+
+For deployment simply connect your repo via GitHub via [Seed](https://seed.run).

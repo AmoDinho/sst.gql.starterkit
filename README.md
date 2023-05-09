@@ -27,3 +27,38 @@ The `/packages` folder has also has a folder called `ServiceOne` however you wil
 - Latest version of Node
 - An AWS account
 - The AWS CLI configured on your machine
+
+## Setup Instructions 🗺️
+
+### Step 1
+
+Create the directory for your project
+
+```
+$ mkdir name_of_your_project
+
+```
+
+Clone the repo somewhere on your machince
+
+```
+$ git clone git@github.com:AmoDinho/sst.gql.starterkit.git
+```
+
+The copy the files over to the folder you created (name_of_your_project)
+
+### Step 2
+
+CD into the repo
+
+```
+$ cd name_of_your_project
+```
+
+Then install the packages
+
+```
+$ yarn install
+```
+
+### Step 3

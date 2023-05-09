@@ -61,4 +61,24 @@ Then install the packages
 $ yarn install
 ```
 
+CD into the `packages` directory
+
+```
+$ cd packages
+
+```
+
+Then install the packages their too:
+
+```
+$ yarn install
+```
+
 ### Step 3
+
+Now you are all setup to run SST locally.
+
+```
+$ yarn dev
+
+```
